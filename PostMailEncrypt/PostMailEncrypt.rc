@@ -1,0 +1,215 @@
+// Microsoft Visual C++ generated resource script.
+//
+#pragma code_page(65001)
+
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#ifndef APSTUDIO_INVOKED
+#include "targetver.h"
+#endif
+#include "afxres.h"
+#include "verrsrc.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 224, 75
+STYLE DS_SETFONT | WS_POPUP | WS_SYSMENU
+FONT 10, "Verdana", 400, 0, 0x0
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,19,12,16,16
+    EDITTEXT        IDC_VERSIE,50,7,167,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_COPYRIGHT,50,23,167,14,ES_AUTOHSCROLL | ES_READONLY
+    DEFPUSHBUTTON   "OK",IDOK,147,42,70,14,WS_GROUP
+END
+
+IDD_POSTMAILENCRYPT DIALOGEX 0, 0, 358, 105
+STYLE DS_SETFONT | WS_POPUP | WS_SYSMENU
+FONT 10, "Verdana", 400, 0, 0x0
+BEGIN
+    LTEXT           "Text to encrypt",IDC_STATIC,7,9,58,8
+    EDITTEXT        IDC_EDIT1,69,7,281,14,ES_AUTOHSCROLL
+    LTEXT           "Repeat the text",IDC_STATIC,7,27,57,8
+    EDITTEXT        IDC_EDIT2,69,24,281,14,ES_AUTOHSCROLL
+    LTEXT           "Encrypted",IDC_STATIC,7,58,48,8
+    EDITTEXT        IDC_EDIT3,69,55,281,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "&Copy",IDC_COPY,230,72,57,14
+    DEFPUSHBUTTON   "OK",IDOK,293,72,57,14
+    CONTROL         "Show the texts",IDC_TOON,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,69,42,92,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_MYSETTINGS_DIALOG AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_ABOUTBOX AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_DIALOG3 AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_PASSWORD AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 63
+    END
+
+    IDD_PASSWORD, DIALOG
+    BEGIN
+        VERTGUIDE, 7
+        VERTGUIDE, 69
+        VERTGUIDE, 350
+        HORZGUIDE, 86
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\PostMailEncrypt.ico"
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#ifndef APSTUDIO_INVOKED\r\n"
+    "#include ""targetver.h""\r\n"
+    "#endif\r\n"
+    "#include ""afxres.h""\r\n"
+    "#include ""verrsrc.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#include ""res\\PostMailEncrypt.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""      // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU MENU
+BEGIN
+    POPUP "MENU"
+    BEGIN
+        POPUP "Thema"
+        BEGIN
+            MENUITEM "Lime",                        ID_THEMA_LIME
+            MENUITEM "Skyblue",                     ID_THEMA_SKYBLUE
+            MENUITEM "Purple",                      ID_THEMA_PURPLE
+            MENUITEM "Mustard",                     ID_THEMA_MUSTARD
+            MENUITEM "Moderate gray",               ID_THEMA_MODERATE
+            MENUITEM "Pure gray",                   ID_THEMA_PUREGRAY
+            MENUITEM "Black && White",              ID_THEMA_BLACKWHITE
+            MENUITEM "Dark",                        ID_THEMA_DARK
+        END
+        MENUITEM "About PostMailEncrypt",         ID_HELP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_ABOUTBOX            "&About PostMailEncrypt..."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE 9, 1
+#include "res\PostMailEncrypt.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"      // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,22 @@
+<PostMailProfiles>
+  <SharedOutbox></SharedOutbox>
+  <Profile>
+    <Name>Default</Name>
+    <Mailhost>smtp.organization.com</Mailhost>
+    <Sender>noreply@organization.com</Sender>
+    <IsDefault>true</IsDefault>
+    <UseLogin>false</UseLogin>
+    <LoginUser/>
+    <LoginPassword/>
+  </Profile>
+  <Profile>
+    <Name>@USER</Name>
+    <Mailhost>smtp.organization.com</Mailhost>
+    <Sender>@FROM</Sender>
+    <BCC>@FROM</BCC>
+    <IsDefault>false</IsDefault>
+    <UseLogin>false</UseLogin>
+    <LoginUser/>
+    <LoginPassword/>
+  </Profile>
+</PostMailProfiles>

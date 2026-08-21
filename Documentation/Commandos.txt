@@ -1,0 +1,54 @@
+ENGLISH           TYPE         NEDERLANDS            FRANCAIS             DEUTSCH
+----------------- ------------ --------------------- -------------------- ----------------------------
+HOST              String       MAILSERVER            SERVEUR              SERVER
+LOGIN             Boolean      LOGIN                 CONNECTER            LOGIN
+MAILID            String       GEBRUIKER             UTILISATEUR          BENUTZER
+FROM              String       VAN                   PAR                  VON
+TO                <n> String   AAN                   A                    AN
+CC                <n> String   CC                    CC                   CC
+BCC               <n> String   BCC                   BCC                  BCC
+PROFILE           String       PROFIEL               PROFIL               PROFIL
+ERRORS            Boolean      FOUTEN                ERREURS              FEHLER
+DIALOG            Boolean      DIALOOG               DIALOGUE             DIALOG
+READCONFIRMATION  Boolean      LEESBEVESTIGING       RECUDELECTURE        LESEBESTATIGUNG
+SENDCONFIRMATION  Boolean      VERSTUURDBEVESTIGEN   CONFORMATIONENVOYEE  SENDBESTATIGUNG
+DELIVERSTATUS     <NOTIFY>     BEZORGDSTATUS         ETATDELIVRAISON      LIEFERSTATUS
+PROGRESS          Boolean      VOORTGANG             PROGRES              FORTSCHRITT
+DELETE            Boolean      VERWIJDEREN           SUPPRIMER            LOESCHEN
+EDITSUBJECT       Boolean      WIJZIGONDERWERP       CHANGERSUJECT        THEMABEARBEITEN
+EDITBODY          Boolean      WIJZIGBERICHT         MODIFIERMESSAGE      NACHRICHTBEARBEITEN
+NOTIFY            Boolean      NOTIFICEER            NOTIFIER             BENACHRICHTEN
+WRITECHANGES      Boolean      BEWAARWIJZIGINGEN     ENREGISTRER          SPEICHERN
+NOPWDCRYPT        <present>    GEENPWDCRYPT          PASDEPMCRYPT         KEINPWDCRYPT
+PASSWORD          <SHA256>     WACHTWOORD            MOTDEPASSE           PASSWORT
+ATTACH            <n> String   BIJLAGE               APPENDIX             ANHANG
+IMPORTANCE        <PRIORITY>   PRIORITEIT            PRIORITE             PRIORITAT
+LANGUAGE          N/E/F/D      TAAL                  LANGUE               SPRACHE
+TIMEOUT           Int [2..20]  TIMEOUT               TEMPSMORT            TIME-OUT
+LOGLEVEL          Int [0..3]   LOGNIVEAU             NIVEAUDEJOURNAL      PROTOKOLLIERUNGSSTUFE
+SUBJECT           String       ONDERWERP             SUJET                THEMA
+<HTMLBODY>
+</HTMLBODY>
+<BODY>
+....
+
+
+
+
+<DELIVERSTATUS>
+ENGLISH   NEDERLANDS FRANCAIS DEUTSCH
+--------- ---------- -------- ---------
+FAILURE   MISLUKT    ECHOUE   FEHLER
+SUCCESS   BEZORGD    INQUIET  BESORGT
+DELAYED   VERTRAAGD  RETARDE  VERZOEGERT
+NEVER     NOOIT      JAMAIS   NIEMALS
+HEADER    KOPTEKST   EN-TETE  UEBERSCHRIFT
+FULL      GEHEEL     ENTIER   GANZ
+
+
+<PRIORITY>
+ENGLISH   NEDERLANDS FRANCAIS DEUTSCH
+--------- ---------- -------- ---------
+HIGH      HOOG       HAUT     HOCH
+NORMAL    NORMAAL    NORMALE  NORMAL
+LOW       LAAG       FAIBLE   NIEDRIG

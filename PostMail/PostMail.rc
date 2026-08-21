@@ -1,0 +1,548 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+#include "version.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// HTML
+//
+
+MESSAGE.HTML            HTML                    "res\\message.html"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 268, 79
+STYLE DS_SETFONT | WS_POPUP | WS_SYSMENU
+FONT 10, "Verdana", 400, 0, 0x0
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,13,20,20
+    LTEXT           "PostMail Version string",IDC_ST_VERSION,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Who wrote it and when",IDC_ST_TEXT,40,22,188,8
+    DEFPUSHBUTTON   "OK",IDOK,195,40,66,16,WS_GROUP
+END
+
+IDD_POSTMAIL_DIALOG DIALOGEX 0, 0, 558, 351
+STYLE DS_SETFONT | DS_SETFOREGROUND | WS_POPUP | WS_VISIBLE | WS_SYSMENU
+EXSTYLE WS_EX_TOPMOST | WS_EX_APPWINDOW
+FONT 10, "Verdana", 400, 0, 0x0
+BEGIN
+    CONTROL         "",IDC_EXPLORER,"{8856F961-340A-11D0-A96B-00C04FD705A2}",WS_TABSTOP,4,99,382,125
+    COMBOBOX        IDC_TOLIST,60,5,238,336,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_CCLIST,60,26,238,30,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_SUBJECT,60,44,238,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "",IDC_MESSAGE,"RichEdit20W",WS_VSCROLL | WS_HSCROLL | WS_TABSTOP | 0x1804,60,63,415,169
+    CONTROL         "",IDC_ATTACH,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,60,235,415,67
+    PUSHBUTTON      "Adressen",IDC_ADRES,333,5,56,16
+    PUSHBUTTON      "Profile",IDC_PROFILE,333,25,56,14
+    PUSHBUTTON      "Instelling",IDC_CONFIG,333,43,56,14
+    COMBOBOX        IDC_EDIT_PRIOR,479,5,74,79,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_EDIT_DELIVER,479,26,74,45,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_EDIT_READ,479,45,74,62,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_TEXTTYPE,479,62,74,89,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Bold",IDC_BOLD,479,79,36,14
+    PUSHBUTTON      "Italic",IDC_ITALIC,517,79,36,14
+    PUSHBUTTON      "Under",IDC_UNDERLINE,479,95,74,14
+    PUSHBUTTON      "Door",IDC_STRIKE,479,112,74,14
+    PUSHBUTTON      "Font [...]",IDC_FONT,479,129,74,14
+    PUSHBUTTON      "Color [...]",IDC_COLOR,479,146,74,14
+    PUSHBUTTON      "Add [...]",IDC_ADD_ATTACH,479,235,74,14
+    PUSHBUTTON      "Remove",IDC_DEL_ATTACH,479,251,74,14
+    PUSHBUTTON      "Show",IDC_SHOW_ATTACH,479,267,74,14
+    PUSHBUTTON      "Out&Box",IDC_OUTBOX,60,309,76,16
+    DEFPUSHBUTTON   "&Zenden",IDOK,389,309,86,16,BS_BITMAP
+    PUSHBUTTON      "&Annuleren",IDCANCEL,479,309,74,16
+    RTEXT           "Zenden aan:",IDC_STATIC_TO,4,8,45,8
+    RTEXT           "CC Zenden:",IDC_STATIC_CC,4,27,45,8
+    RTEXT           "Onderwerp:",IDC_STATIC_SUBJECT,4,46,45,8
+    RTEXT           "Boodschap:",IDC_STATIC_TEXT,4,62,45,8
+    EDITTEXT        IDC_NUM_TO,301,5,28,16,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_NUM_CC,301,25,28,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    RTEXT           "Prioriteit:",IDC_STATIC_PRIOR,392,9,83,11,0,WS_EX_RIGHT
+    RTEXT           "Ontvangstbevestiging:",IDC_STATIC_DELIVER,392,28,83,8,0,WS_EX_RIGHT
+    RTEXT           "Leesbevestiging:",IDC_STATIC_LEES,392,46,83,8,0,WS_EX_RIGHT
+    RTEXT           "Bijsluiten:",IDC_STATIC_ATTACH,4,234,45,8
+END
+
+IDD_CONFIG_OUTBOX DIALOGEX 0, 0, 385, 213
+STYLE DS_SETFONT | WS_POPUP | WS_SYSMENU
+FONT 10, "Verdana", 400, 0, 0x0
+BEGIN
+    LTEXT           "Type outbox",IDC_ST_TYPEBOX,7,10,75,8
+    COMBOBOX        IDC_TYPE,85,7,293,72,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Map e-mails",IDC_ST_MAPMAIL,7,27,74,8
+    EDITTEXT        IDC_DIRECTORY,85,24,257,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "[...]",IDC_CHOOSE,345,24,33,14
+    LTEXT           "Initiële selectie",IDC_ST_SELECTION,7,44,75,8
+    COMBOBOX        IDC_SELECT,85,42,125,99,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Waarschuwen bij",IDC_ST_WARNAT,7,60,74,8
+    EDITTEXT        IDC_MAXFILES,85,58,45,14,ES_AUTOHSCROLL
+    LTEXT           "Historie",IDC_ST_HISTORY,7,78,75,8
+    CONTROL         "",IDC_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,85,76,293,98
+    PUSHBUTTON      "&Verwijder",IDC_DELETE,7,160,69,14
+    DEFPUSHBUTTON   "&OK",IDOK,221,178,74,14
+    PUSHBUTTON      "&Annuleren",IDCANCEL,304,178,74,14
+END
+
+IDD_RELAY DIALOGEX 0, 0, 561, 63
+STYLE DS_SETFONT | DS_SETFOREGROUND | WS_POPUP
+EXSTYLE WS_EX_TOPMOST
+FONT 10, "Verdana", 400, 0, 0x0
+BEGIN
+    CONTROL         "",IDC_PROGRESS,"msctls_progress32",PBS_SMOOTH | WS_BORDER,38,7,516,13
+    EDITTEXT        IDC_RELAY_TEXT,38,25,516,12,ES_AUTOHSCROLL | ES_READONLY
+    ICON            IDR_MAINFRAME,IDC_ICON_MAIL,11,13,20,20
+END
+
+IDD_PROFILE DIALOGEX 0, 0, 480, 368
+STYLE DS_SETFONT | WS_POPUP | WS_SYSMENU
+FONT 10, "Verdana", 400, 0, 0x0
+BEGIN
+    CONTROL         "",IDC_LIST,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,7,194,305
+    PUSHBUTTON      "&New",IDC_NIEUW,7,316,58,14
+    PUSHBUTTON      "&Mutate",IDC_WIJZIGEN,75,316,58,14
+    PUSHBUTTON      "&Delete",IDC_VERWIJDER,143,316,58,14
+    PUSHBUTTON      "Promote",IDC_BOVEN,206,280,60,14
+    PUSHBUTTON      "Demote",IDC_BENEDEN,206,298,60,14
+    LTEXT           "Profile name",IDC_STATIC_PROFILENAME,206,10,82,8
+    EDITTEXT        IDC_PROFILENAME,299,7,174,14,ES_AUTOHSCROLL
+    LTEXT           "E-Mail address",IDC_STATIC_EMAIL,206,30,83,8
+    EDITTEXT        IDC_EMAIL,299,27,174,14,ES_AUTOHSCROLL
+    LTEXT           "Sent items (via bcc)",IDC_STATIC_BCC,206,50,103,8
+    EDITTEXT        IDC_BCC,299,47,174,14,ES_AUTOHSCROLL
+    LTEXT           "SMTP Mail host server",IDC_STATIC_SERVER,206,70,82,8
+    COMBOBOX        IDC_SERVER,299,67,174,207,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "SMTP port number",IDC_STATIC_PORT,206,87,82,8
+    COMBOBOX        IDC_PORT,299,85,174,169,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Standard profile",IDC_STATIC_STANDARD,206,106,82,8
+    CONTROL         "",IDC_STANDARD,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,299,105,11,10
+    LTEXT           "Use login",IDC_STATIC_LOGIN,206,122,82,8
+    CONTROL         "",IDC_USELOGIN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,299,121,11,10
+    LTEXT           "Login username",IDC_STATIC_USER,206,140,82,8
+    EDITTEXT        IDC_USER,299,137,174,14,ES_AUTOHSCROLL
+    LTEXT           "Password",IDC_STATIC_WW1,206,161,82,8
+    EDITTEXT        IDC_WACHTWOORD1,299,158,174,14,ES_PASSWORD | ES_AUTOHSCROLL
+    LTEXT           "Password check",IDC_STATIC_WW2,206,180,82,8
+    EDITTEXT        IDC_WACHTWOORD2,299,177,174,14,ES_PASSWORD | ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "&OK",IDOK,299,334,83,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,389,334,84,14
+    PUSHBUTTON      "Standard font",IDC_FONT,385,298,88,14
+END
+
+IDD_USEPROFILE DIALOGEX 0, 0, 470, 291
+STYLE DS_SETFONT | WS_POPUP | WS_SYSMENU
+FONT 10, "Verdana", 400, 0, 0x0
+BEGIN
+    LTEXT           "Why you must choose!",IDC_STATIC_LINE1,12,11,442,28
+    LTEXT           "Create or change",IDC_STATIC_LINE3,12,40,449,8
+    GROUPBOX        "List of all active mail profiles",IDC_ST_LIST,7,56,205,208
+    CONTROL         "",IDC_LIJST,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,12,69,196,187
+    GROUPBOX        "Chosen mail profile",IDC_ST_CHOSEN,218,56,245,145
+    LTEXT           "Profielnaam",IDC_ST_PROFILE,224,72,161,8
+    EDITTEXT        IDC_PROFILE,224,83,232,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Mailserver",IDC_ST_SERVER,224,104,161,8
+    EDITTEXT        IDC_SERVER,224,115,232,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Afzender",IDC_ST_SENDER,224,134,161,8
+    EDITTEXT        IDC_EMAIL,224,145,232,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Login naam",IDC_ST_LOGINNAME,224,164,161,8
+    EDITTEXT        IDC_USER,224,175,232,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Niet meer vragen tijdens de sessie",IDC_VRAGEN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,224,205,162,10
+    PUSHBUTTON      "&Beheren",IDC_CONFIG,224,236,73,20
+    DEFPUSHBUTTON   "&OK",IDOK,307,236,73,20
+    PUSHBUTTON      "&Annuleren",IDCANCEL,390,236,73,20
+    PUSHBUTTON      "Origi&neel",IDC_ORIGINAL,390,206,73,20
+END
+
+IDD_USERS DIALOGEX 0, 0, 297, 250
+STYLE DS_SETFONT | WS_POPUP | WS_SYSMENU
+FONT 10, "Verdana", 400, 0, 0x0
+BEGIN
+    LTEXT           "Geadresseerden",IDC_STATIC_TO,7,7,138,8
+    LISTBOX         IDC_LIST_TO,7,20,138,167,LBS_USETABSTOPS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    PUSHBUTTON      "&Nieuw",IDC_ADD_TO,7,190,66,14
+    PUSHBUTTON      "&Verwijderen",IDC_DELETE_TO,79,190,66,14
+    LTEXT           "Kopie zenden aan",IDC_STATIC_CC,152,7,138,8
+    LISTBOX         IDC_LIST_CC,152,20,138,167,LBS_USETABSTOPS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Nieuw",IDC_ADD_CC,152,190,66,14
+    PUSHBUTTON      "Verwijderen",IDC_DELETE_CC,224,190,66,14
+    DEFPUSHBUTTON   "OK",IDOK,152,214,65,14
+    PUSHBUTTON      "Cancel",IDCANCEL,224,214,66,14
+END
+
+IDD_ADDUSER DIALOGEX 0, 0, 284, 109
+STYLE DS_SETFONT | WS_POPUP | WS_SYSMENU
+FONT 10, "Verdana", 400, 0, 0x0
+BEGIN
+    LTEXT           "Email adres",IDC_STATIC_EMAIL,7,10,57,8
+    EDITTEXT        IDC_EMAILADRES,67,7,210,14,ES_AUTOHSCROLL
+    LTEXT           "Leesbare naam",IDC_STATIC_FRIENDLY,7,29,58,8
+    EDITTEXT        IDC_FRIENDLY,67,25,210,14,ES_AUTOHSCROLL
+    CONTROL         "Plaats in de BCC lijst",IDC_PUTBCC,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,67,45,209,10
+    DEFPUSHBUTTON   "OK",IDOK,135,74,66,14
+    PUSHBUTTON      "&Annuleren",IDCANCEL,210,74,67,14
+END
+
+IDD_OUTBOX DIALOGEX 0, 0, 449, 269
+STYLE DS_SETFONT | WS_POPUP | WS_SYSMENU
+FONT 10, "Verdana", 400, 0, 0x0
+BEGIN
+    LTEXT           "Outbox",IDC_ST_OUTBOX,7,10,51,8
+    EDITTEXT        IDC_OUTBOX,61,7,283,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    LTEXT           "Zoek",IDC_ST_SEARCH,7,27,51,8
+    EDITTEXT        IDC_SEARCH,61,24,218,14,ES_AUTOHSCROLL | ES_WANTRETURN
+    PUSHBUTTON      "Zoek",IDC_DOSEARCH,283,24,41,14
+    PUSHBUTTON      "[X]",IDC_REMFILT,326,24,18,14
+    CONTROL         "",IDC_LIST,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,41,337,184
+    GROUPBOX        "Selection",IDC_SELECTION,348,7,94,137
+    CONTROL         "Last 24 hour",IDC_TODAY,"Button",BS_AUTORADIOBUTTON,354,21,71,10
+    CONTROL         "Last week",IDC_WEEK,"Button",BS_AUTORADIOBUTTON,354,38,85,10
+    CONTROL         "Last month",IDC_MONTH,"Button",BS_AUTORADIOBUTTON,354,55,84,10
+    CONTROL         "Last 3 months",IDC_3MONTHS,"Button",BS_AUTORADIOBUTTON,354,71,84,10
+    CONTROL         "Last 6 months",IDC_6MONTHS,"Button",BS_AUTORADIOBUTTON,354,89,83,10
+    CONTROL         "Last year",IDC_YEAR,"Button",BS_AUTORADIOBUTTON,354,106,82,10
+    CONTROL         "Alle e-mails",IDC_ALL,"Button",BS_AUTORADIOBUTTON,354,122,82,10
+    PUSHBUTTON      "Configure outbox",IDC_CONFIG,354,151,88,14
+    PUSHBUTTON      "Configure logfile",IDC_LOGFILE,354,170,88,14
+    CONTROL         "Centraal log active",IDC_ACTIEF,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,354,189,88,10
+    PUSHBUTTON      "Delete",IDC_DELETE,7,230,89,14
+    PUSHBUTTON      "&Again / Show",IDC_AGAIN,102,230,89,14
+    PUSHBUTTON      "OK",IDC_CLOSE,354,230,88,14
+END
+
+IDD_POSTMAILENCRYPT DIALOGEX 0, 0, 358, 105
+STYLE DS_SETFONT | WS_POPUP | WS_SYSMENU
+FONT 10, "Verdana", 400, 0, 0x0
+BEGIN
+    LTEXT           "Text to encrypt",IDC_STATIC,7,9,58,8
+    EDITTEXT        IDC_EDIT1,69,7,281,14,ES_AUTOHSCROLL
+    LTEXT           "Repeat the text",IDC_STATIC,7,27,57,8
+    EDITTEXT        IDC_EDIT2,69,24,281,14,ES_AUTOHSCROLL
+    LTEXT           "Encrypted",IDC_STATIC,7,58,48,8
+    EDITTEXT        IDC_EDIT3,69,55,281,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "&Copy",IDC_COPY,230,72,57,14
+    DEFPUSHBUTTON   "OK",IDOK,293,72,57,14
+    CONTROL         "Show the texts",IDC_TOON,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,69,42,92,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU1 MENU
+BEGIN
+    POPUP "MENU"
+    BEGIN
+        MENUITEM "Lime",                        ID_THEMA_LIME
+        MENUITEM "Skyblue",                     ID_THEMA_SKYBLUE
+        MENUITEM "Purple",                      ID_THEMA_PURPLE
+        MENUITEM "Mustard",                     ID_THEMA_MUSTARD
+        MENUITEM "Moderate gray",               ID_THEMA_MODERATE
+        MENUITEM "Pure gray",                   ID_THEMA_PUREGRAY
+        MENUITEM "Black && White",              ID_THEMA_BLACKWHITE
+        MENUITEM "Dark Theme",                  ID_THEMA_DARKTHEME
+        MENUITEM SEPARATOR
+        MENUITEM "Encrypt text...",             32784
+        MENUITEM "Manual...",                   ID_HELP_MANUAL
+        MENUITEM "Command line...",             ID_HELP_COMMANDLINE
+        MENUITEM "About PostMail...",           ID_HELP_ABOUT
+        MENUITEM SEPARATOR
+        MENUITEM "Exit PostMail",               ID_CLOSE
+    END
+END
+
+IDR_MENU2 MENU
+BEGIN
+    POPUP "MENU"
+    BEGIN
+        POPUP "Thema"
+        BEGIN
+            MENUITEM "Lime",                        ID_THEMA_LIME
+            MENUITEM "Skyblue",                     ID_THEMA_SKYBLUE
+            MENUITEM "Purple",                      ID_THEMA_PURPLE
+            MENUITEM "Mustard",                     ID_THEMA_MUSTARD
+            MENUITEM "Moderate gray",               ID_THEMA_MODERATE
+            MENUITEM "Pure gray",                   ID_THEMA_PUREGRAY
+            MENUITEM "Black && White",              ID_THEMA_BLACKWHITE
+            MENUITEM "Dark",                        ID_THEMA_DARKTHEME
+        END
+        MENUITEM "About PostMailEncrypt",         ID_HELP_ABOUT
+    END
+END
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        VERTGUIDE, 40
+        BOTTOMMARGIN, 65
+        HORZGUIDE, 10
+        HORZGUIDE, 56
+    END
+
+    IDD_POSTMAIL_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 4
+        RIGHTMARGIN, 553
+        VERTGUIDE, 60
+        VERTGUIDE, 298
+        VERTGUIDE, 301
+        VERTGUIDE, 329
+        VERTGUIDE, 333
+        VERTGUIDE, 389
+        VERTGUIDE, 475
+        VERTGUIDE, 479
+        TOPMARGIN, 5
+        BOTTOMMARGIN, 346
+        HORZGUIDE, 21
+        HORZGUIDE, 38
+        HORZGUIDE, 58
+    END
+
+    IDD_CONFIG_OUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 378
+        VERTGUIDE, 85
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 206
+        HORZGUIDE, 38
+        HORZGUIDE, 174
+        HORZGUIDE, 192
+    END
+
+    IDD_RELAY, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 54
+    END
+
+    IDD_PROFILE, DIALOG
+    BEGIN
+        VERTGUIDE, 201
+        VERTGUIDE, 206
+        VERTGUIDE, 299
+        VERTGUIDE, 473
+        BOTTOMMARGIN, 355
+        HORZGUIDE, 312
+        HORZGUIDE, 330
+        HORZGUIDE, 348
+    END
+
+    IDD_USEPROFILE, DIALOG
+    BEGIN
+        VERTGUIDE, 12
+        VERTGUIDE, 224
+        VERTGUIDE, 454
+        BOTTOMMARGIN, 276
+        HORZGUIDE, 256
+    END
+
+    IDD_USERS, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 235
+    END
+
+    IDD_ADDUSER, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 96
+    END
+
+    IDD_OUTBOX, DIALOG
+    BEGIN
+        VERTGUIDE, 7
+        VERTGUIDE, 61
+        VERTGUIDE, 344
+        VERTGUIDE, 354
+        VERTGUIDE, 442
+        BOTTOMMARGIN, 251
+        HORZGUIDE, 37
+        HORZGUIDE, 244
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_POSTMAIL_DIALOG DLGINIT
+BEGIN
+    IDC_EXPLORER, 0x376, 160, 0
+0x0000, 0x0000, 0x004c, 0x0000, 0x4ef6, 0x0000, 0x19d7, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x004c, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0001, 
+0x0000, 0xd0e0, 0x0057, 0x3573, 0x11cf, 0x69ae, 0x0008, 0x2e2b, 0x6212, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x004c, 0x0000, 0x1401, 0x0002, 0x0000, 
+0x0000, 0x00c0, 0x0000, 0x0000, 0x4600, 0x0080, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0001, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_ABOUTBOX AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_POSTMAIL_DIALOG AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_CONFIG_OUTBOX AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_PROFILE AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_OUTBOX AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_RELAY AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_USERS AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_ADDUSER AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_USEPROFILE AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "#include ""version.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#include ""res\\PostMail.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\PostMail.ico"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_ABOUTBOX            "&About PostMail..."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#include "res\PostMail.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

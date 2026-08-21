@@ -1,0 +1,196 @@
+/////////////////////////////////////////////////////////////////////////////////
+//
+// SourceFile: FindProxy.cpp
+//
+// Marlin Server: Internet server/client
+// 
+// Copyright (c) 2014-2024 ir. W.E. Huisman
+// All rights reserved
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files(the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and / or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions :
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+#include "stdafx.h"
+#include "FindProxy.h"
+#include <ConvertWideString.h>
+
+FindProxy::FindProxy()
+{
+  m_perDest = true;
+  m_info    = nullptr;
+}
+
+FindProxy::~FindProxy()
+{
+  if(m_info)
+  {
+    delete m_info;
+    m_info = nullptr;
+  }
+}
+
+XString
+FindProxy::Find(const XString& p_url,bool p_secure)
+{
+  // If already initialized
+  if(!m_lastUsedDst.IsEmpty() && (m_lastUsedDst == p_url))
+  {
+    //and no need to init again
+    return m_proxy;
+  }
+  //get proxy configuration for current user using WinHttpGetIEProxyConfigForCurrentUser [ + WinHttpGetProxyForUrl ]
+  m_proxy.Empty();
+  m_ignored = "";
+  m_perDest = false;
+  XString proxy;
+
+  ProxyConfig proxyCfg = { 0 };
+
+  WINHTTP_CURRENT_USER_IE_PROXY_CONFIG &cfg = proxyCfg.cfg;
+  if(::WinHttpGetIEProxyConfigForCurrentUser(&cfg))
+  {
+    if(cfg.lpszProxy)
+    {
+      std::wstring wproxy(cfg.lpszProxy);
+      proxy = WStringToString(wproxy);
+      if(!!cfg.lpszProxyBypass)
+      {
+        std::wstring bypass(cfg.lpszProxyBypass);
+        m_ignored = WStringToString(bypass);
+      }
+    }
+    LPWSTR autoCfgUrl = cfg.lpszAutoConfigUrl;
+    if(proxy.IsEmpty() && (cfg.fAutoDetect || !!autoCfgUrl))
+    {
+      //check for auto proxy settings
+      WINHTTP_AUTOPROXY_OPTIONS autoOpts = { 0, };
+      autoOpts.fAutoLogonIfChallenged = TRUE;
+      if(cfg.fAutoDetect)
+      {
+        autoOpts.dwAutoDetectFlags = WINHTTP_AUTO_DETECT_TYPE_DHCP | WINHTTP_AUTO_DETECT_TYPE_DNS_A;
+        autoOpts.dwFlags = WINHTTP_AUTOPROXY_AUTO_DETECT;
+      }
+      if(autoCfgUrl)
+      {
+        autoOpts.lpszAutoConfigUrl = autoCfgUrl;
+        autoOpts.dwFlags |= WINHTTP_AUTOPROXY_CONFIG_URL;
+      }
+      Internet internet { ::WinHttpOpen(L"", WINHTTP_ACCESS_TYPE_DEFAULT_PROXY, WINHTTP_NO_PROXY_NAME, WINHTTP_NO_PROXY_BYPASS, 0) };
+      if(m_info)
+      {
+        delete m_info;
+      }
+      m_info = alloc_new ProxyInfo();
+
+      WINHTTP_PROXY_INFO &autoCfg = m_info->cfg;
+      if(internet.hInter && ::WinHttpGetProxyForUrl(internet.hInter, StringToWString(p_url).c_str(),&autoOpts,&autoCfg))
+      {
+        if(autoCfg.lpszProxy && autoCfg.dwAccessType != WINHTTP_ACCESS_TYPE_NO_PROXY)
+        {
+          m_perDest = true;
+          std::wstring wproxy(autoCfg.lpszProxy);
+          proxy = WStringToString(wproxy);
+          if(!!autoCfg.lpszProxyBypass)
+          {
+            std::wstring bypass(autoCfg.lpszProxyBypass);
+            m_ignored = WStringToString(bypass);
+          }
+        }
+      }
+    }
+    if(!proxy.IsEmpty())
+    {
+      FindUniqueProxy(proxy,p_secure);
+      if(!m_ignored.IsEmpty())
+      {
+        // Converting WinHttp bypass list to ignore list requires "a bit" more then replacing ';' with ','
+        // but in lots cases this works, so it is better then simply ignoring the ignore list (or is it?!)
+        m_ignored.Replace(';',',');
+      }
+    }
+    m_lastUsedDst = p_url;
+  }
+  SetInfo(m_proxy,m_ignored);
+
+  return m_proxy;
+}
+
+void
+FindProxy::SetInfo(const XString& p_proxy,const XString& p_bypass)
+{
+  if(!m_info)
+  {
+    m_info = alloc_new ProxyInfo();
+  }
+  m_proxy   = p_proxy;
+  m_ignored = p_bypass;
+
+#ifdef _UNICODE
+  m_wProxy   = p_proxy;
+  m_wIgnored = m_ignored;
+#else
+  m_wProxy   = StringToWString(m_proxy);
+  m_wIgnored = StringToWString(m_ignored);
+#endif
+
+  m_info->cfg.dwAccessType    = WINHTTP_ACCESS_TYPE_NAMED_PROXY;
+  m_info->cfg.lpszProxy       = reinterpret_cast<LPWSTR>(const_cast<wchar_t*>(m_wProxy.  c_str()));
+  m_info->cfg.lpszProxyBypass = reinterpret_cast<LPWSTR>(const_cast<wchar_t*>(m_wIgnored.c_str()));
+}
+
+void
+FindProxy::FindUniqueProxy(const XString& p_proxyList,bool p_secure)
+{
+  XString proxyList(p_proxyList);
+
+  while(proxyList.GetLength())
+  {
+    XString part;
+    int pos = proxyList.Find(';');
+    if(pos > 0)
+    {
+      part = proxyList.Left(pos);
+      proxyList = proxyList.Mid(pos + 1);
+    }
+    else
+    {
+      part = proxyList;
+      proxyList.Empty();
+    }
+    // Secure proxy goes before insecure proxy
+    if(p_secure)
+    {
+      if(part.Find(_T("https=")) == 0)
+      {
+        part.Replace(_T("="),_T("://"));
+        m_proxy = part;
+        return;
+      }
+    }
+    else
+    {
+      if(part.Find(_T("http=")) == 0)
+      {
+        part.Replace(_T("="),_T("://"));
+        m_proxy = part;
+        return;
+      }
+    }
+  }
+  // Protocol not found
+}
