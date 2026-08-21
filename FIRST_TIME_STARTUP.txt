@@ -1,0 +1,11 @@
+READ BEFORE STARTING "PostMail.exe" 
+
+1) Unpack the release binaries (*.zip file) in a folder of your choosing.
+2) Start "PostMail.exe"  -> You will get an error warning that a SMTP host file cannot be found!
+3) Ignore the error messages and close the program
+4) You will now find a "PostMail.Mailservers.ini" file in your directory
+5) If you plan to use SMTP add the server address on an empty line at the end of the file
+6) If you so wish you can add multiple SMTP servers to the file
+5) Optionally you can add the SMTP port number (25 or 587) at the end of the address
+   eg: smtp.organisation.org:587
+   
